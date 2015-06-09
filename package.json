@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "protractor": "*",
-    "pre-commit": "1.0.7"
+    "pre-commit": "1.0.8"
   },
   "scripts": {
     "test": "protractor conf.js"
