@@ -1,0 +1,23 @@
+{
+  "name": "race-entry",
+  "version": "1.0.0",
+  "description": "A demo",
+  "main": "index.js",
+  "devDependencies": {
+    "protractor": "*",
+    "precommit-hook": "^2.0.1"
+  },
+  "scripts": {
+    "test": "protractor onf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpodwys/race-entry.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpodwys/race-entry/issues"
+  },
+  "homepage": "https://github.com/jpodwys/race-entry"
+}
