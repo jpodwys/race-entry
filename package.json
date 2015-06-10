@@ -4,7 +4,7 @@
   "description": "A demo",
   "main": "index.js",
   "devDependencies": {
-    "protractor": "*",
+    "protractor": "2.1.0",
     "pre-commit": "1.0.8"
   },
   "scripts": {
