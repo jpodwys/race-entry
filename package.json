@@ -10,7 +10,9 @@
   "scripts": {
     "test": "protractor conf.js"
   },
-  "pre-commit": ["test"],
+  "pre-commit": [
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jpodwys/race-entry.git"
@@ -20,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jpodwys/race-entry/issues"
   },
-  "homepage": "https://github.com/jpodwys/race-entry"
+  "homepage": "https://github.com/jpodwys/race-entry",
+  "directories": {
+    "test": "tests"
+  }
 }
