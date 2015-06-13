@@ -4,8 +4,8 @@ function Home() {
   this.passwordInput = element(by.css('[name="password"]'));
   this.loginSubmitButton = element(by.css('div.login-drawer button[type="submit"]'));
 
-  this.fetch = function () {
-    browser.get('http://v2.raceentry.com/');
+  this.fetch = function (prefix) {
+    browser.get(prefix);
     return this;
   }
 
