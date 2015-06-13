@@ -3,8 +3,8 @@ function AdminDashboard() {
   this.createCalendarListingButton = element(by.linkText('Create Race Registration Form'));
   this.createRaceMapButton = element(by.linkText('Create Race Registration Form'));
 
-  this.fetch = function () {
-    browser.get('http://v2.raceentry.com/user');
+  this.fetch = function (prefix) {
+    browser.get(prefix + 'user');
     return this;
   }
 }

@@ -55,8 +55,8 @@ function CreateRace() {
   this.initialsInput = element(by.id('[name="terms_initials"]'));
   this.submitButton = element(by.id('save-button'));
 
-  this.fetch = function () {
-    browser.get('http://v2.raceentry.com/race/create');
+  this.fetch = function (prefix) {
+    browser.get(prefix + 'race/create');
     return this;
   }
 
