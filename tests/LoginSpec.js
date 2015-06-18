@@ -18,3 +18,4 @@ describe('Home Page test', function() {
     new CreateRace();
   });
 });
+
