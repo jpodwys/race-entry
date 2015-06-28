@@ -1,4 +1,6 @@
 function CreateRace() {
+  this.categorySelector = '[class*="category-"]:not(.category-ids)';
+
   //Basic Race Information
   this.input_raceName = element(by.css('[data-test="race-name"]'));
   this.input_raceDescription = element(by.css('[data-test="race-description"]'));
@@ -53,7 +55,7 @@ function CreateRace() {
   this.input_categoryTeamMaxTeamMembers = element(by.css('[name="cat_team_price_join_0"]'));
   this.input_categoryParticipantLimit = element(by.css('[name="cat_participant_limit_0"]'));
   //this.removeCategoryButton = element(by.css('[=""]')); //NEEDS MORE DATA
-  //this.addCategoryButton = element(by.css('[=""]')); //NEEDS MORE DATA
+  //this.button_addCategory = element(by.css('[=""]')); //NEEDS MORE DATA
 
   //Terms and Conditions
   this.input_initials = element(by.id('[name="terms_initials"]'));
@@ -68,7 +70,33 @@ function CreateRace() {
     return this;
   }
 
+  // this.getAllCategories = function () {
+  //   return element.all(by.css(this.categorySelector)).then(function(elements) {
+  //     return elements;
+  //   });
+  // }
+
+  this.getAllCategories = function () {
+    return element.all(by.css(this.categorySelector));
+  }
+
+  this.getCategoryName = function (category) {
+    return category.element('[data-test="category-name"]').getAttribute('value');
+  }
+
+  this.fillCategory = function (category, data) {
+    if(category && data){
+      category.element(by.css('[data-test="category-name"]')).sendKeys(data.categoryName);
+    }
+  }
+
   this.addCategory = function (category) {
+    if(category){
+
+    }
+    else{
+
+    }
     return this;
   }
 
