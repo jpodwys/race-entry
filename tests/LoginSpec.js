@@ -20,11 +20,35 @@ describe('Home Page test', function() {
     var raceData = config.raceDataBasic();
 
     CR.getAllCategories().then(function (categories){
+      var category = categories[0];
       var categoryData = raceData.categories[0];
-      CR.fillCategory(categories[0], categoryData);
-      categories[0].element(by.css('[data-test="category-name"]')).getAttribute('value').then(function (text){
-        expect(text).toEqual(categoryData.categoryName);
+      CR.fillCategory(category, categoryData);
+
+      category.element(by.css(CR.selector_categoryName)).getAttribute('value').then(function (text){
+        expect(text).toEqual(categoryData.name);
+        category.element(by.css(CR.selector_categoryDistance)).getAttribute('value').then(function (text){
+          expect(text).toEqual(categoryData.distance);
+          category.element(by.css(CR.selector_categoryBeginningPrice)).getAttribute('value').then(function (text){
+            expect(text).toEqual(categoryData.beginningPrice);
+            category.element(by.css(CR.selector_categoryParticipantLimit)).getAttribute('value').then(function (text){
+              expect(text).toEqual(categoryData.participantLimit);
+            });
+          });
+        });
       });
+
+      // category.element(by.css(CR.selector_categoryName)).getAttribute('value').then(function (text){
+      //   expect(text).toEqual(categoryData.name);
+      // });
+      // category.element(by.css(CR.selector_categoryDistance)).getAttribute('value').then(function (text){
+      //   expect(text).toEqual(categoryData.distance);
+      // });
+      // category.element(by.css(CR.selector_categoryBeginningPrice)).getAttribute('value').then(function (text){
+      //   expect(text).toEqual(categoryData.beginningPrice);
+      // });
+      // category.element(by.css(CR.selector_categoryParticipantLimit)).getAttribute('value').then(function (text){
+      //   expect(text).toEqual(categoryData.participantLimit);
+      // });
     });
 
     // browser.wait(function() {

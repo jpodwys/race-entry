@@ -1,6 +1,4 @@
 function CreateRace() {
-  this.categorySelector = '[class*="category-"]:not(.category-ids)';
-
   //Basic Race Information
   this.input_raceName = element(by.css('[data-test="race-name"]'));
   this.input_raceDescription = element(by.css('[data-test="race-description"]'));
@@ -39,23 +37,19 @@ function CreateRace() {
   this.input_registrationEnds = element(by.css('[data-test="race-registration-ends"]'));
 
   //Categories
-  // this.allCategories = element.all(by.css('[class*="category-"]')).then(function(elements) {
-  //   // elements is an array of ElementFinders.
-  // });
-  //this.allCategories = element.all(by.css('[class*="category-"]'));
-  this.input_categoryName = element(by.css('[name="cat_name_0"]'));
-  this.input_categoryDistance = element(by.css('[name="cat_distance_0"]'));
-  this.input_categoryDistanceUnits = element(by.css('[name="cat_distance_units_0"]'));
-  this.input_categoryDistanceUnits = element(by.css('[name="cat_distance_units_0"]'));
-  //this.categoryTypeIndividualInput = element(by.css('[name="cat_type_0"]')); //NEEDS MORE DATA
-  this.input_categoryIndividualBeginningPrice = element(by.css('[name="cat_individual_price_0"]'));
-  //this.categoryTypeTeamInput = element(by.css('[name="cat_type_0"]')); //NEEDS MORE DATA
-  this.input_categoryTeamCreateTeamPrice = element(by.css('[name="cat_team_price_create_0"]'));
-  this.input_categoryTeamJoinTeamPrice = element(by.css('[name="cat_team_price_join_0"]'));
-  this.input_categoryTeamMaxTeamMembers = element(by.css('[name="cat_team_price_join_0"]'));
-  this.input_categoryParticipantLimit = element(by.css('[name="cat_participant_limit_0"]'));
-  //this.removeCategoryButton = element(by.css('[=""]')); //NEEDS MORE DATA
-  //this.button_addCategory = element(by.css('[=""]')); //NEEDS MORE DATA
+  this.selector_allCategories = '[class*="category-"]:not(.category-ids)';
+  this.selector_categoryName = '[data-test="category-name"]';
+  this.selector_categoryDistance = '[data-test="category-distance"]';
+  this.selector_categoryDistanceUnits = '[data-test="category-distance-units"]';
+  this.selector_categoryTypeIndividual = '[data-test="category-type-individual"]';
+  this.selector_categoryBeginningPrice = '[data-test="beginning-price"]';
+  this.selector_categoryTypeTeamInput = '[data-test="category-type-team"]';
+  this.selector_categoryTeamCreateTeamPrice = '[data-test="team-price-create"]';
+  this.selector_categoryTeamJoinTeamPrice = '[data-test="team-price-join"]';
+  this.selector_categoryTeamMaxTeamMembers = '[data-test="team-max-members"]';
+  this.selector_categoryParticipantLimit = '[data-test="participant-limit"]';
+  this.selector_removeCategory = '[data-test="remove-category"]';
+  this.button_addCategory = element(by.css('[data-test="add-category"]'));
 
   //Terms and Conditions
   this.input_initials = element(by.id('[name="terms_initials"]'));
@@ -71,13 +65,13 @@ function CreateRace() {
   }
 
   // this.getAllCategories = function () {
-  //   return element.all(by.css(this.categorySelector)).then(function(elements) {
+  //   return element.all(by.css(this.selector_allCategories)).then(function(elements) {
   //     return elements;
   //   });
   // }
 
   this.getAllCategories = function () {
-    return element.all(by.css(this.categorySelector));
+    return element.all(by.css(this.selector_allCategories));
   }
 
   this.getCategoryName = function (category) {
@@ -86,7 +80,10 @@ function CreateRace() {
 
   this.fillCategory = function (category, data) {
     if(category && data){
-      category.element(by.css('[data-test="category-name"]')).sendKeys(data.categoryName);
+      category.element(by.css(this.selector_categoryName)).sendKeys(data.name);
+      category.element(by.css(this.selector_categoryDistance)).sendKeys(data.distance);
+      category.element(by.css(this.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
+      category.element(by.css(this.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
     }
   }
 

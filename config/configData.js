@@ -4,7 +4,7 @@ var PASSWORD = 'testaccount';
 var CREDIT_CARD_NUMBER = '';
 
 var BASIC_CATEGORY = {
-  categoryName: 'Basic Category',
+  name: 'Basic Category',
   distance: '10',
   beginningPrice: '10',
   participantLimit: '1000'
