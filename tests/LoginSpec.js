@@ -1,9 +1,9 @@
 var config = require('../config/configData');
+var raceData = config.raceDataBasic();
 var Base = require('../pages/Base');
 var Home = require('../pages/Home');
 var AdminDashboard = require('../pages/AdminDashboard');
 var CreateRace = require('../pages/CreateRace');
-
 var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
 
@@ -16,14 +16,12 @@ describe('Home Page test', function() {
       .login(config.credentials.username, config.credentials.password);
     new AdminDashboard()
       .button_createRaceForm.click();
-    var CR = new CreateRace();
-    var raceData = config.raceDataBasic();
+    var CR = new CreateRace()
+    CR.fillForm(raceData);
 
     CR.getAllCategories().then(function (categories){
       var category = categories[0];
       var categoryData = raceData.categories[0];
-      CR.fillCategory(category, categoryData);
-
       category.element(by.css(CR.selector_categoryName)).getAttribute('value').then(function (text){
         expect(text).toEqual(categoryData.name);
         category.element(by.css(CR.selector_categoryDistance)).getAttribute('value').then(function (text){
@@ -36,36 +34,7 @@ describe('Home Page test', function() {
           });
         });
       });
-
-      // category.element(by.css(CR.selector_categoryName)).getAttribute('value').then(function (text){
-      //   expect(text).toEqual(categoryData.name);
-      // });
-      // category.element(by.css(CR.selector_categoryDistance)).getAttribute('value').then(function (text){
-      //   expect(text).toEqual(categoryData.distance);
-      // });
-      // category.element(by.css(CR.selector_categoryBeginningPrice)).getAttribute('value').then(function (text){
-      //   expect(text).toEqual(categoryData.beginningPrice);
-      // });
-      // category.element(by.css(CR.selector_categoryParticipantLimit)).getAttribute('value').then(function (text){
-      //   expect(text).toEqual(categoryData.participantLimit);
-      // });
     });
-
-    // browser.wait(function() {
-    //   return CR.getAllCategories().then(function (categories){
-    //   CR.fillCategory(categories[0], raceData.categories[0]);
-    //     categories[0].element(by.css('[data-test="category-name"]')).getAttribute('value').then(function (text){
-    //       return text === raceData.raceName;
-    //     expect(text).toEqual(raceData.raceName);
-    //   });
-    // });
-    // }, 5000, "There is not exactly 1 category.");
-
-
-
-      // .getAllCategories().then(function(elements){
-      //   expect(elements.length).toBe(1);
-      // });
 
     // browser.wait(function() {
     //   return element.all(by.css('[class*="category-"]:not(.category-ids)')).then(function(elements) {
@@ -73,14 +42,6 @@ describe('Home Page test', function() {
     //     return elements.length === 1;
     //   });
     // }, 5000, "There is not exactly 1 category.");
-
-    //CR.getAllCategories().then(function(elements){
-      //console.log('ELEMENTS', elements);
-      //expect(elements.length).toBe(1);
-    //});
-
-    // var p = CR.getAllCategories();
-    // console.log(p);
 
   });
 });

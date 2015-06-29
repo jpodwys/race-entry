@@ -1,4 +1,6 @@
 function CreateRace() {
+  var self = this;
+
   //Basic Race Information
   this.input_raceName = element(by.css('[data-test="race-name"]'));
   this.input_raceDescription = element(by.css('[data-test="race-description"]'));
@@ -52,7 +54,7 @@ function CreateRace() {
   this.button_addCategory = element(by.css('[data-test="add-category"]'));
 
   //Terms and Conditions
-  this.input_initials = element(by.id('[name="terms_initials"]'));
+  this.input_initials = element(by.css('[data-test="terms-initials"]'));
   this.button_submit = element(by.id('save-button'));
 
   this.fetch = function (prefix) {
@@ -64,18 +66,56 @@ function CreateRace() {
     return this;
   }
 
-  // this.getAllCategories = function () {
-  //   return element.all(by.css(this.selector_allCategories)).then(function(elements) {
-  //     return elements;
-  //   });
-  // }
-
   this.getAllCategories = function () {
     return element.all(by.css(this.selector_allCategories));
   }
 
   this.getCategoryName = function (category) {
     return category.element('[data-test="category-name"]').getAttribute('value');
+  }
+
+  this.fillForm = function (race, categories){
+    for(var key in race){
+      if(race.hasOwnProperty(key)){
+        if(typeof race[key] == 'string'){
+          self[key].sendKeys(race[key]);
+        }
+        else if(key == 'categories'){
+          self.fillCategories(race[key]);
+        }
+      }
+    }
+  }
+
+  this.fillCategories = function (categoriesData) {
+    var callback = function(index){
+      var data = categoriesData[index];
+      self.getAllCategories().then(function (categories){
+        var category = categories[categories.length - 1];
+        self.fillCategory(category, data);
+      });
+    }
+    for(var i = 0; i < categoriesData.length; i++){
+      if(i > 0){
+        self.addCategories(1);
+      }
+      callback(i);
+    }
+  }
+
+  this.addCategories = function (num) {
+    var callback = function(index){
+      self.button_addCategory.click();
+      browser.wait(function() {
+        return self.getAllCategories().then(function (categories){
+          return categories.length == index + 2;
+        });
+      }, (500 * num), 'Incorrect number of categories.');
+    }
+    for(var i = 0; i < num; i++){
+      callback(i);
+    }
+    return self.getAllCategories();
   }
 
   this.fillCategory = function (category, data) {
@@ -85,16 +125,6 @@ function CreateRace() {
       category.element(by.css(this.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
       category.element(by.css(this.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
     }
-  }
-
-  this.addCategory = function (category) {
-    if(category){
-
-    }
-    else{
-
-    }
-    return this;
   }
 
   this.removeCategory = function () {
