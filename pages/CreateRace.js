@@ -93,7 +93,7 @@ function CreateRace() {
   }
 
   this.fillCategories = function (categoriesData) {
-    var callback = function(index){
+    var execute = function(index){
       var data = categoriesData[index];
       self.getAllCategories().then(function (categories){
         var category = categories[categories.length - 1];
@@ -104,12 +104,12 @@ function CreateRace() {
       if(i > 0){
         self.addCategories(1);
       }
-      callback(i);
+      execute(i);
     }
   }
 
   this.addCategories = function (num) {
-    var callback = function(index){
+    var execute = function(index){
       self.button_addCategory.click();
       browser.wait(function() {
         return self.getAllCategories().then(function (categories){
@@ -118,9 +118,8 @@ function CreateRace() {
       }, (500 * num), 'Incorrect number of categories.');
     }
     for(var i = 0; i < num; i++){
-      callback(i);
+      execute(i);
     }
-    return self.getAllCategories();
   }
 
   this.fillCategory = function (category, data) {
