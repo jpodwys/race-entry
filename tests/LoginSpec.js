@@ -36,12 +36,14 @@ describe('Home Page test', function() {
       });
     });
 
+    CR.button_submit.click();
+
     // browser.wait(function() {
     //   return element.all(by.css('[class*="category-"]:not(.category-ids)')).then(function(elements) {
     //     expect(elements.length).toEqual(1)
     //     return elements.length === 1;
     //   });
-    // }, 5000, "There is not exactly 1 category.");
+    // }, 10000, "There is not exactly 1 category.");
 
   });
 });

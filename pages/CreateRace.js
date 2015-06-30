@@ -2,7 +2,7 @@ function CreateRace() {
   var self = this;
 
   //Basic Race Information
-  this.input_raceName = element(by.css('[data-test="race-name"]'));
+  this.input_raceName = element(by.css('[data-test="race-name"][name="race_name"]'));
   this.input_raceDescription = element(by.css('[data-test="race-description"]'));
   this.input_raceUrl = element(by.css('[data-test="race-external-url"]'));
   this.input_raceType = element(by.css('[data-test="race-type-id"]'));
@@ -74,11 +74,16 @@ function CreateRace() {
     return category.element('[data-test="category-name"]').getAttribute('value');
   }
 
-  this.fillForm = function (race, categories){
+  this.fillForm = function (race){
     for(var key in race){
       if(race.hasOwnProperty(key)){
         if(typeof race[key] == 'string'){
-          self[key].sendKeys(race[key]);
+          if(key == 'input_raceType' || key == 'input_raceState' || key == 'input_payState'){
+            self[key].element(by.css(race[key])).click();
+          }
+          else{
+            self[key].sendKeys(race[key]);
+          }
         }
         else if(key == 'categories'){
           self.fillCategories(race[key]);
