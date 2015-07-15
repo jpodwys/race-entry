@@ -2,79 +2,88 @@ function CreateRace() {
   var self = this;
 
   //Basic Race Information
-  this.input_raceName = element(by.css('[data-test="race-name"][name="race_name"]'));
-  this.input_raceDescription = element(by.css('[data-test="race-description"]'));
-  this.input_raceUrl = element(by.css('[data-test="race-external-url"]'));
-  this.input_raceType = element(by.css('[data-test="race-type-id"]'));
+  self.input_raceName = element(by.css('[data-test="race-name"][name="race_name"]'));
+  self.input_raceDescription = element(by.css('[data-test="race-description"]'));
+  self.input_raceUrl = element(by.css('[data-test="race-external-url"]'));
+  self.input_raceType = element(by.css('[data-test="race-type-id"]'));
 
   //Contact Information
-  this.input_contactFirstName = element(by.css('[data-test="contact-first-name"]'));
-  this.input_contactLastName = element(by.css('[data-test="contact-last-name"]'));
-  this.input_contactEmail = element(by.css('[data-test="contact-email"]'));
+  self.input_contactFirstName = element(by.css('[data-test="contact-first-name"]'));
+  self.input_contactLastName = element(by.css('[data-test="contact-last-name"]'));
+  self.input_contactEmail = element(by.css('[data-test="contact-email"]'));
 
   //Upload Race Logo
-  //this.input_raceLogo = element(by.css('[data-test=""]'));
+  //self.input_raceLogo = element(by.css('[data-test=""]'));
 
   //Where and When
-  this.input_raceDate = element(by.css('[data-test="race-year-datetime"]'));
-  this.input_raceStreet = element(by.css('[data-test="race-year-address"]'));
-  this.input_raceCity = element(by.css('[data-test="race-year-city"]'));
-  this.input_raceState = element(by.css('[data-test="race-year-state"]'));
-  this.input_raceZip = element(by.css('[data-test="race-year-zipcode"]'));
-  this.input_createRegistrationForm = element(by.css('[data-test="create-registration"]'));
+  self.input_raceDate = element(by.css('[data-test="race-year-datetime"]'));
+  self.input_raceStreet = element(by.css('[data-test="race-year-address"]'));
+  self.input_raceCity = element(by.css('[data-test="race-year-city"]'));
+  self.input_raceState = element(by.css('[data-test="race-year-state"]'));
+  self.input_raceZip = element(by.css('[data-test="race-year-zipcode"]'));
+  self.input_createRegistrationForm = element(by.css('[data-test="create-registration"]'));
 
   //Checks Payable Information
-  this.input_payEntity = element(by.css('[data-test="entity-name"]'));
-  this.input_payAddress = element(by.css('[data-test="entity-address"]'));
-  this.input_payCity = element(by.css('[data-test="entity-city"]'));
-  this.input_payState = element(by.css('[data-test="entity-state"]'));
-  this.input_payZip = element(by.css('[data-test="entity-zipcode"]'));
+  self.input_payEntity = element(by.css('[data-test="entity-name"]'));
+  self.input_payAddress = element(by.css('[data-test="entity-address"]'));
+  self.input_payCity = element(by.css('[data-test="entity-city"]'));
+  self.input_payState = element(by.css('[data-test="entity-state"]'));
+  self.input_payZip = element(by.css('[data-test="entity-zipcode"]'));
 
   //Registration Information
-  this.input_openRegistrationLater = element(by.css('[data-test="open-reg-later"]'));
-  this.input_registrationOpens = element(by.css('[data-test="registration-opens-datetime"]'));
-  this.input_chargeRegistrationTax = element(by.css('[data-test="charge-tax"]'));
-  this.input_registrationTaxRate = element(by.css('[data-test="tax-charge"]'));
-  this.input_optionalRaceWaiver = element(by.css('[data-test="race-registration-waiver"]'));
-  this.input_registrationEnds = element(by.css('[data-test="race-registration-ends"]'));
+  self.input_openRegistrationLater = element(by.css('[data-test="open-reg-later"]'));
+  self.input_registrationOpens = element(by.css('[data-test="registration-opens-datetime"]'));
+  self.input_chargeRegistrationTax = element(by.css('[data-test="charge-tax"]'));
+  self.input_registrationTaxRate = element(by.css('[data-test="tax-charge"]'));
+  self.input_optionalRaceWaiver = element(by.css('[data-test="race-registration-waiver"]'));
+  self.input_registrationEnds = element(by.css('[data-test="race-registration-ends"]'));
 
   //Categories
-  this.selector_allCategories = '[class*="category-"]:not(.category-ids)';
-  this.selector_categoryName = '[data-test="category-name"]';
-  this.selector_categoryDistance = '[data-test="category-distance"]';
-  this.selector_categoryDistanceUnits = '[data-test="category-distance-units"]';
-  this.selector_categoryTypeIndividual = '[data-test="category-type-individual"]';
-  this.selector_categoryBeginningPrice = '[data-test="beginning-price"]';
-  this.selector_categoryTypeTeamInput = '[data-test="category-type-team"]';
-  this.selector_categoryTeamCreateTeamPrice = '[data-test="team-price-create"]';
-  this.selector_categoryTeamJoinTeamPrice = '[data-test="team-price-join"]';
-  this.selector_categoryTeamMaxTeamMembers = '[data-test="team-max-members"]';
-  this.selector_categoryParticipantLimit = '[data-test="participant-limit"]';
-  this.selector_removeCategory = '[data-test="remove-category"]';
-  this.button_addCategory = element(by.css('[data-test="add-category"]'));
+  self.selector_allCategories = '[class*="category-"]:not(.category-ids)';
+  self.selector_categoryName = '[data-test="category-name"]';
+  self.selector_categoryDistance = '[data-test="category-distance"]';
+  self.selector_categoryDistanceUnits = '[data-test="category-distance-units"]';
+  self.selector_categoryTypeIndividual = '[data-test="category-type-individual"]';
+  self.selector_categoryBeginningPrice = '[data-test="beginning-price"]';
+  self.selector_categoryTypeTeamInput = '[data-test="category-type-team"]';
+  self.selector_categoryTeamCreateTeamPrice = '[data-test="team-price-create"]';
+  self.selector_categoryTeamJoinTeamPrice = '[data-test="team-price-join"]';
+  self.selector_categoryTeamMaxTeamMembers = '[data-test="team-max-members"]';
+  self.selector_categoryParticipantLimit = '[data-test="participant-limit"]';
+  self.selector_removeCategory = '[data-test="remove-category"]';
+  self.button_addCategory = element(by.css('[data-test="add-category"]'));
 
   //Terms and Conditions
-  this.input_initials = element(by.css('[data-test="terms-initials"]'));
-  this.button_submit = element(by.id('save-button'));
+  self.input_initials = element(by.css('[data-test="terms-initials"]'));
+  self.button_submit = element(by.id('save-button'));
 
-  this.fetch = function (prefix) {
+  self.fetch = function (prefix) {
     browser.get(prefix + 'race/create');
-    return this;
+    return self;
   }
 
-  this.completeFormStandard = function () {
-    return this;
+  self.wait = function () {
+    browser.wait(function() {
+      return element.all(by.css(self.selector_categoryName)).then(function (items){
+        return items.length > 0;
+      });
+    }, 15000, 'Page did not load.');
+    return self;
   }
 
-  this.getAllCategories = function () {
-    return element.all(by.css(this.selector_allCategories));
+  self.completeFormStandard = function () {
+    return self;
   }
 
-  this.getCategoryName = function (category) {
+  self.getAllCategories = function () {
+    return element.all(by.css(self.selector_allCategories));
+  }
+
+  self.getCategoryName = function (category) {
     return category.element('[data-test="category-name"]').getAttribute('value');
   }
 
-  this.fillForm = function (race){
+  self.fillForm = function (race){
     for(var key in race){
       if(race.hasOwnProperty(key)){
         if(typeof race[key] == 'string'){
@@ -90,9 +99,10 @@ function CreateRace() {
         }
       }
     }
+    return self;
   }
 
-  this.fillCategories = function (categoriesData) {
+  self.fillCategories = function (categoriesData) {
     var execute = function(index){
       var data = categoriesData[index];
       self.getAllCategories().then(function (categories){
@@ -108,7 +118,7 @@ function CreateRace() {
     }
   }
 
-  this.addCategories = function (num) {
+  self.addCategories = function (num) {
     var execute = function(index){
       self.button_addCategory.click();
       browser.wait(function() {
@@ -122,17 +132,17 @@ function CreateRace() {
     }
   }
 
-  this.fillCategory = function (category, data) {
+  self.fillCategory = function (category, data) {
     if(category && data){
-      category.element(by.css(this.selector_categoryName)).sendKeys(data.name);
-      category.element(by.css(this.selector_categoryDistance)).sendKeys(data.distance);
-      category.element(by.css(this.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
-      category.element(by.css(this.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
+      category.element(by.css(self.selector_categoryName)).sendKeys(data.name);
+      category.element(by.css(self.selector_categoryDistance)).sendKeys(data.distance);
+      category.element(by.css(self.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
+      category.element(by.css(self.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
     }
   }
 
-  this.removeCategory = function () {
-    return this;
+  self.removeCategory = function () {
+    return self;
   }
 }
 

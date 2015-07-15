@@ -19,7 +19,7 @@ module.exports.raceDataBasic = function(){
     input_contactFirstName: 'Joe',
     input_contactLastName: 'Pod',
     input_contactEmail: 'thomas@raceentry.com',
-    input_raceDate: '01/01/2020',
+    input_raceDate: '01/01/2015 10:00',
     input_raceStreet: '1234 Some Place',
     input_raceCity: 'Orem',
     input_raceState: '[value="44"]',
@@ -32,11 +32,11 @@ module.exports.raceDataBasic = function(){
     input_registrationEnds: '01/01/2018',
     input_initials: 'HAHA',
     categories: [BASIC_CATEGORY, {
-  name: 'Another Category',
-  distance: '1000',
-  beginningPrice: '1000',
-  participantLimit: '1000'
-}]
+      name: 'Another Category',
+      distance: '1000',
+      beginningPrice: '1000',
+      participantLimit: '1000'
+    }]
   }
 }
 

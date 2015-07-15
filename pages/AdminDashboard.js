@@ -30,6 +30,23 @@ function AdminDashboard() {
     return element.all(by.css(self.selector_allCategories));
   }
 
+  self.assertRaceIsPresent = function (basePath, raceName) {
+    var href = basePath + 'race/' + raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
+    var selector = 'a[href="' + href + '"]';
+    browser.wait(function() {
+      return element.all(by.css(selector)).then(function (items){
+        return items.length == 2;
+      });
+    }, (2000), 'Created race not found.');
+    return self;
+  }
+
+  self.goToRaceDashboard = function (basePath, raceName) {
+    var href = basePath + 'race/' + raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
+    var selector = 'a[href="' + href + '"]';
+    element(by.css(selector)).click();
+  }
+
   //self.wait();
 }
 
