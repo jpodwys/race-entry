@@ -6,11 +6,13 @@ var AdminDashboard = require('../pages/AdminDashboard');
 var CreateRace = require('../pages/CreateRace');
 var CustomizeRace = require('../pages/CustomizeRace');
 var AdminRaceDashboard = require('../pages/AdminRaceDashboard');
+var AdminCategoryDashboard = require('../pages/AdminCategoryDashboard');
 var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
 
 describe('Home Page test', function() {
   //browser.ignoreSynchronization = true;
+  
   it('Should load the home page', function() {
     new Home()
       .fetch(BASE_PATH)
@@ -51,5 +53,21 @@ describe('Home Page test', function() {
     new AdminRaceDashboard()
       .wait()
       .assertCategoriesArePresent(raceData.categories);
+
+    var raceName = raceData.input_raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
+    var execute = function (index) {
+      new AdminRaceDashboard()
+        .fetch(BASE_PATH, raceName)
+        .wait();
+        element(by.linkText(raceData.categories[index].name)).click();
+      new AdminCategoryDashboard()
+        .wait()
+        .assertDataIsCorrect(raceData.categories[index]);
+    }
+    for(var i = 0; i < raceData.categories.length; i ++){
+      execute(i);
+    }
+
   });
 });
+

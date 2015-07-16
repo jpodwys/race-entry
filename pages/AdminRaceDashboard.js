@@ -19,6 +19,11 @@ function AdminRaceDashboard() {
     return self;
   }
 
+  self.click = function (element) {
+    element.click();
+    return self;
+  }
+
   self.assertCategoriesArePresent = function (categories) {
     browser.wait(function() {
       return element.all(by.css('.table-striped.table-bordered.dashboard-table tr')).then(function (rows){
