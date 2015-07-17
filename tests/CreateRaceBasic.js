@@ -14,6 +14,7 @@ describe('Home Page test', function() {
   //browser.ignoreSynchronization = true;
   
   it('Should load the home page', function() {
+    //require('./components/ComponentLogin');
     new Home()
       .fetch(BASE_PATH)
       .wait()
@@ -24,24 +25,6 @@ describe('Home Page test', function() {
     new CreateRace()
       .wait()
       .fillForm(raceData)
-
-    // CreateRacePage.getAllCategories().then(function (categories){
-    //   var category = categories[0];
-    //   var categoryData = raceData.categories[0];
-    //   category.element(by.css(CreateRacePage.selector_categoryName)).getAttribute('value').then(function (text){
-    //     expect(text).toEqual(categoryData.name);
-    //     category.element(by.css(CreateRacePage.selector_categoryDistance)).getAttribute('value').then(function (text){
-    //       expect(text).toEqual(categoryData.distance);
-    //       category.element(by.css(CreateRacePage.selector_categoryBeginningPrice)).getAttribute('value').then(function (text){
-    //         expect(text).toEqual(categoryData.beginningPrice);
-    //         category.element(by.css(CreateRacePage.selector_categoryParticipantLimit)).getAttribute('value').then(function (text){
-    //           expect(text).toEqual(categoryData.participantLimit);
-    //         });
-    //       });
-    //     });
-    //   });
-    // });
-
       .button_submit.click();
     new CustomizeRace()
       .wait();
@@ -56,10 +39,12 @@ describe('Home Page test', function() {
 
     var raceName = raceData.input_raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
     var execute = function (index) {
-      new AdminRaceDashboard()
-        .fetch(BASE_PATH, raceName)
-        .wait();
-        element(by.linkText(raceData.categories[index].name)).click();
+      if(index > 0){
+        new AdminRaceDashboard()
+          .fetch(BASE_PATH, raceName)
+          .wait();
+          element(by.linkText(raceData.categories[index].name)).click();
+      }
       new AdminCategoryDashboard()
         .wait()
         .assertDataIsCorrect(raceData.categories[index]);

@@ -4,6 +4,6 @@ exports.config = {
     defaultTimeoutInterval: 450000
   },
   specs: [
-    'tests/LoginSpec.js'
+    'tests/CreateRaceBasic.js'
   ]
 };
