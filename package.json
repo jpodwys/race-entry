@@ -5,14 +5,12 @@
   "main": "index.js",
   "devDependencies": {
     "protractor": "2.1.0",
-    "pre-commit": "1.0.11"
+    "pre-commit": "1.0.10"
   },
   "scripts": {
     "test": "protractor conf.js"
   },
-  "pre-commit": [
-    "test"
-  ],
+  "pre-commit": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/jpodwys/race-entry.git"
