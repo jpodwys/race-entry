@@ -4,25 +4,11 @@ Automated UI tests for RaceEntry.com
 
 # Installation
 
-#### 1
-
-Run `git pull` from the `master` branch of your `Race_Entry` folder to make sure you have the tests.
-
-#### 2
-
-Go to `programfiles/nodejs/` and delete all files that start with `npm` (there should only be 2).
-
-#### 3
-
-From the `Race_Entry` folder, run `npm install -g npm` to get the latest version of node.
-
-#### 4
-
-Run `node_modules/.bin/webdriver-manager update`.
-
-#### 5
-
-Run `npm test` to make sure it all worked. If it worked, browser tests will launch a run against your dev environment.
+1. Run `git pull` from the `master` branch of your `Race_Entry` folder to make sure you have the tests.
+2. Go to `programfiles/nodejs/` and delete all files that start with `npm` (there should only be 2).
+3. From the `Race_Entry` folder, run `npm install -g npm` to get the latest version of node.
+4. Run `node_modules/.bin/webdriver-manager update`.
+5. Run `npm test` to make sure it all worked. If it worked, browser tests will launch a run against your dev environment.
 
 # Running Tests
 
