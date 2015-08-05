@@ -4,11 +4,14 @@ Automated UI tests for RaceEntry.com
 
 # Installation
 
-1. Run `git pull` from the `master` branch of your `Race_Entry` folder to make sure you have the tests.
-2. Go to `programfiles/nodejs/` and delete all files that start with `npm` (there should only be 2).
-3. From the `Race_Entry` folder, run `npm install -g npm` to get the latest version of node.
-4. Run `node_modules/.bin/webdriver-manager update`.
-5. Run `npm test` to make sure it all worked. If it worked, browser tests will launch a run against your dev environment.
+> If you get stuck on any of the below steps, have a look at [Protractor's setup](https://angular.github.io/protractor/#/tutorial) page. If you can't find what you're looking for there, contact me on slack.
+
+1. Make sure you have the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+2. Run `git pull` from the `master` branch of your `Race_Entry` folder to make sure you have the tests.
+3. Go to `programfiles/nodejs/` and delete all files that start with `npm` (there should only be 2).
+4. From the `Race_Entry` folder, run `npm install -g npm` to get the latest version of node.
+5. Run `node_modules/.bin/webdriver-manager update`.
+6. Run `npm test` to make sure it all worked. If it worked, browser tests will launch a run against your dev environment.
 
 # Running Tests
 
