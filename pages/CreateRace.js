@@ -91,7 +91,7 @@ function CreateRace() {
             self[key].element(by.css(race[key])).click();
           }
           else{
-            self[key].sendKeys(race[key]);
+            self[key].click().sendKeys(race[key]);
           }
         }
         else if(key == 'categories'){
