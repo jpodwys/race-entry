@@ -45,10 +45,13 @@ function CreateRace() {
   self.selector_categoryDistanceUnits = '[data-test="category-distance-units"]';
   self.selector_categoryTypeIndividual = '[data-test="category-type-individual"]';
   self.selector_categoryBeginningPrice = '[data-test="beginning-price"]';
-  self.selector_categoryTypeTeamInput = '[data-test="category-type-team"]';
+  self.selector_categoryTypeTeam = '[data-test="category-type-team"]';
   self.selector_categoryTeamCreateTeamPrice = '[data-test="team-price-create"]';
   self.selector_categoryTeamJoinTeamPrice = '[data-test="team-price-join"]';
   self.selector_categoryTeamMaxTeamMembers = '[data-test="team-max-members"]';
+  self.selector_categoryLimitType = '[data-test="limit-type"]';
+  self.selector_categoryTeamLimitTeam = '[data-test="team-limit"]';
+  self.selector_categoryTeamLimitParticipant = '[data-test="team-participant-limit"]';
   self.selector_categoryParticipantLimit = '[data-test="participant-limit"]';
   self.selector_removeCategory = '[data-test="remove-category"]';
   self.button_addCategory = element(by.css('[data-test="add-category"]'));
@@ -136,8 +139,24 @@ function CreateRace() {
     if(category && data){
       category.element(by.css(self.selector_categoryName)).sendKeys(data.name);
       category.element(by.css(self.selector_categoryDistance)).sendKeys(data.distance);
-      category.element(by.css(self.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
-      category.element(by.css(self.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
+
+      if(data.type == 'individual'){
+        category.element(by.css(self.selector_categoryBeginningPrice)).sendKeys(data.beginningPrice);
+        category.element(by.css(self.selector_categoryParticipantLimit)).sendKeys(data.participantLimit);
+      }
+      else if(data.type == 'team'){
+        category.element(by.css(self.selector_categoryTypeTeam)).click().click();
+        category.element(by.css(self.selector_categoryTeamCreateTeamPrice)).sendKeys(data.createTeamPrice);
+        category.element(by.css(self.selector_categoryTeamJoinTeamPrice)).sendKeys(data.joinTeamPrice);
+        category.element(by.css(self.selector_categoryTeamMaxTeamMembers)).sendKeys(data.participantLimit);
+        if(data.limitBy == 'team'){
+          category.element(by.css(self.selector_categoryTeamLimitTeam)).sendKeys(data.teamLimit);
+        }
+        else if(data.limitBy == 'participant'){
+          category.element(by.css('[value="participant"]')).click();
+          category.element(by.css(self.selector_categoryTeamLimitParticipant)).sendKeys(data.teamParticipantLimit); 
+        }
+      }
     }
   }
 

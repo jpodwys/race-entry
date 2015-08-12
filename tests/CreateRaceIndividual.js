@@ -1,5 +1,5 @@
 var config = require('../config/configData');
-var raceData = config.raceDataBasic();
+var raceData = config.raceDataIndividual();
 var Base = require('../pages/Base');
 var Home = require('../pages/Home');
 var AdminDashboard = require('../pages/AdminDashboard');
@@ -10,15 +10,11 @@ var AdminCategoryDashboard = require('../pages/AdminCategoryDashboard');
 var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
 
-describe('Home Page test', function() {
+describe('Create Race Individual', function() {
   //browser.ignoreSynchronization = true;
   
-  it('Should load the home page', function() {
-    //require('./components/ComponentLogin');
-    new Home()
-      .fetch(BASE_PATH)
-      .wait()
-      .login(config.credentials.username, config.credentials.password);
+  it('Should create a race with two individual categories', function() {
+    require('./components/Login');
     new AdminDashboard()
       .wait()
       .button_createRaceForm.click();

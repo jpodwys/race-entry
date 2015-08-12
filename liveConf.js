@@ -3,7 +3,13 @@ exports.config = {
   jasmineOpts: {
     defaultTimeoutInterval: 450000
   },
+  capabilities: {
+    browserName: 'chrome',
+    shardTestFiles: true,
+    maxInstances: 2
+  },
   specs: [
-    'tests/CreateRaceBasic.js'
+    'tests/CreateRaceIndividual.js',
+    'tests/CreateRaceTeam.js'
   ]
 };
