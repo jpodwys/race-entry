@@ -29,7 +29,7 @@ function getGeneralData(type){
 
 var BASIC_CATEGORY_1 = {
   name: 'Individual Category 1',
-  distance: '10',
+  distance: '10.0',
   type: 'individual',
   beginningPrice: '10',
   participantLimit: '1000'
@@ -37,7 +37,7 @@ var BASIC_CATEGORY_1 = {
 
 var BASIC_CATEGORY_2 = {
   name: 'Individual Category 2',
-  distance: '1000',
+  distance: '100.0',
   type: 'individual',
   beginningPrice: '1000',
   participantLimit: '1000'
@@ -45,23 +45,23 @@ var BASIC_CATEGORY_2 = {
 
 var TEAM_CATEGORY_LIMIT_BY_TEAMS = {
   name: 'Team Category 1',
-  distance: '1000',
+  distance: '1000.0',
   type: 'team',
   createTeamPrice: '10.00',
   joinTeamPrice: '10.00',
   participantLimit: '1000',
-  limitBy: 'team',
+  limitBy: 'teams',
   teamLimit: '100'
 }
 
 var TEAM_CATEGORY_LIMIT_BY_PARTICIPANTS = {
   name: 'Team Category 2',
-  distance: '1000',
+  distance: '1000.0',
   type: 'team',
   createTeamPrice: '10.00',
   joinTeamPrice: '10.00',
   participantLimit: '1000',
-  limitBy: 'participant',
+  limitBy: 'participants',
   teamParticipantLimit: '1000'
 }
 

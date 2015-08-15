@@ -149,10 +149,10 @@ function CreateRace() {
         category.element(by.css(self.selector_categoryTeamCreateTeamPrice)).sendKeys(data.createTeamPrice);
         category.element(by.css(self.selector_categoryTeamJoinTeamPrice)).sendKeys(data.joinTeamPrice);
         category.element(by.css(self.selector_categoryTeamMaxTeamMembers)).sendKeys(data.participantLimit);
-        if(data.limitBy == 'team'){
+        if(data.limitBy == 'teams'){
           category.element(by.css(self.selector_categoryTeamLimitTeam)).sendKeys(data.teamLimit);
         }
-        else if(data.limitBy == 'participant'){
+        else if(data.limitBy == 'participants'){
           category.element(by.css('[value="participant"]')).click();
           category.element(by.css(self.selector_categoryTeamLimitParticipant)).sendKeys(data.teamParticipantLimit); 
         }

@@ -39,8 +39,8 @@ describe('Create Race Individual', function() {
         new AdminRaceDashboard()
           .fetch(BASE_PATH, raceName)
           .wait();
-          element(by.linkText(raceData.categories[index].name)).click();
       }
+      element(by.linkText(raceData.categories[index].name)).click();
       new AdminCategoryDashboard()
         .wait()
         .assertDataIsCorrect(raceData.categories[index]);
@@ -51,4 +51,3 @@ describe('Create Race Individual', function() {
 
   });
 });
-
