@@ -1,13 +1,14 @@
 {
   "name": "race-entry",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A demo",
   "main": "index.js",
   "devDependencies": {
     "protractor": "2.1.0"
   },
   "scripts": {
-    "test": "protractor conf.js"
+    "test": "protractor conf-sequential.js",
+    "test-p": "protractor conf-parallel.js"
   },
   "repository": {
     "type": "git",
