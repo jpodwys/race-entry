@@ -128,7 +128,7 @@ function CreateRace() {
         return self.getAllCategories().then(function (categories){
           return categories.length == index + 2;
         });
-      }, (500 * num), 'Incorrect number of categories.');
+      }, (1000 * num), 'Incorrect number of categories.');
     }
     for(var i = 0; i < num; i++){
       execute(i);

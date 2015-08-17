@@ -11,6 +11,7 @@ var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
 
 describe('Create Race Individual', function() {
+  browser.driver.manage().window().maximize();
   //browser.ignoreSynchronization = true;
   
   it('Should create a race with two individual categories', function() {
