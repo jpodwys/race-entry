@@ -31,7 +31,7 @@ var BASIC_CATEGORY_1 = {
   name: 'Individual Category 1',
   distance: '10.0',
   type: 'individual',
-  beginningPrice: '10',
+  beginningPrice: '10.00',
   participantLimit: '1000'
 }
 
@@ -39,7 +39,7 @@ var BASIC_CATEGORY_2 = {
   name: 'Individual Category 2',
   distance: '100.0',
   type: 'individual',
-  beginningPrice: '1000',
+  beginningPrice: '1000.00',
   participantLimit: '1000'
 }
 
