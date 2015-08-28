@@ -2,7 +2,7 @@ function AdminPricingDashboard() {
 
   var self = this;
 
-  self.selector_priceRow = '.priceRow';
+  self.selector_priceRow = '.price_row';
   self.selector_allCategories = '[id^="category_"]:not([type="hidden"])';
   self.selector_categoryName = 'h2';
   self.selector_categoryIndividualPrice = '[name^="individual["]';
@@ -27,14 +27,14 @@ function AdminPricingDashboard() {
   self.checkAllCategoryPrices = function (raceCategories) {
     element.all(by.css(self.selector_allCategories)).then(function (uiCategories){
       expect(raceCategories.length).toEqual(uiCategories.length);
-      for(var i = 0; i < categories.length; i++){
+      for(var i = 0; i < raceCategories.length; i++){
         self.checkCategoryPrice(raceCategories[i], uiCategories[i]);
       }
     });
   }
 
   self.checkCategoryPrice = function (raceCategory, uiCategory) {
-    getValue(uiCategory, self.selector_categoryName).then(function (text){
+    getText(uiCategory, self.selector_categoryName).then(function (text){
       expect(raceCategory.name).toEqual(text);
     });
     if(raceCategory.type == 'individual'){
@@ -50,6 +50,10 @@ function AdminPricingDashboard() {
         expect(raceCategory.joinTeamPrice).toEqual(text);
       });
     }
+  }
+
+  function getText (parent, selector) {
+    return parent.element(by.css(selector)).getText();
   }
 
   function getValue (parent, selector) {

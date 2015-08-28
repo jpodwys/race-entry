@@ -7,6 +7,7 @@ var CreateRace = require('../pages/CreateRace');
 var CustomizeRace = require('../pages/CustomizeRace');
 var AdminRaceDashboard = require('../pages/AdminRaceDashboard');
 var AdminCategoryDashboard = require('../pages/AdminCategoryDashboard');
+var AdminPricingDashboard = require('../pages/AdminPricingDashboard');
 var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
 
@@ -35,7 +36,7 @@ describe('Create Race Individual', function() {
       .assertCategoriesArePresent(raceData.categories);
 
     var raceName = raceData.input_raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
-    var execute = function (index) {
+    var executeCategoryDashboardCheck = function (index) {
       if(index > 0){
         new AdminRaceDashboard()
           .fetch(BASE_PATH, raceName)
@@ -47,8 +48,13 @@ describe('Create Race Individual', function() {
         .assertDataIsCorrect(raceData.categories[index]);
     }
     for(var i = 0; i < raceData.categories.length; i ++){
-      execute(i);
+      executeCategoryDashboardCheck(i);
     }
+
+    new AdminPricingDashboard()
+      .fetch(BASE_PATH, 'race/' + raceName + '/pricing')
+      .wait()
+      .checkAllCategoryPrices(raceData.categories);
 
   });
 });
