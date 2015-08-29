@@ -1,10 +1,11 @@
 var config = require('../../config/configData');
-var Base = require('../../pages/Base');
 var Home = require('../../pages/Home');
-var BasePage = new Base();
-var BASE_PATH = BasePage.basePath;
 
-module.exports = new Home()
-  .fetch(BASE_PATH)
-  .wait()
-  .login(config.credentials.username, config.credentials.password);
+module.exports = function(fetch, BASE_PATH){
+  var home = new Home();
+  if(fetch){
+    home.fetch(BASE_PATH);
+  } 
+  home.wait()
+    .login(config.credentials.username, config.credentials.password);
+}

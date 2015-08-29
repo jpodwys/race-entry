@@ -1,60 +1,29 @@
 var config = require('../config/configData');
-var raceData = config.raceDataIndividual();
 var Base = require('../pages/Base');
-var Home = require('../pages/Home');
 var AdminDashboard = require('../pages/AdminDashboard');
-var CreateRace = require('../pages/CreateRace');
 var CustomizeRace = require('../pages/CustomizeRace');
-var AdminRaceDashboard = require('../pages/AdminRaceDashboard');
-var AdminCategoryDashboard = require('../pages/AdminCategoryDashboard');
-var AdminPricingDashboard = require('../pages/AdminPricingDashboard');
 var BasePage = new Base();
 var BASE_PATH = BasePage.basePath;
+var raceData = config.raceDataIndividual();
 
 describe('Create Race Individual', function() {
   browser.driver.manage().window().maximize();
   //browser.ignoreSynchronization = true;
   
   it('Should create a race with two individual categories', function() {
-    require('./components/Login');
+    new require('./components/Login')(true, BASE_PATH);
     new AdminDashboard()
       .wait()
       .button_createRaceForm.click();
-    new CreateRace()
-      .wait()
-      .fillForm(raceData)
-      .button_submit.click();
+    new require('./components/CreateRace')(false, raceData);
     new CustomizeRace()
       .wait();
-    new AdminDashboard()
-      .fetch(BASE_PATH, 'race/events/past')
-      .wait()
-      .assertRaceIsPresent(BASE_PATH, raceData.input_raceName)
-      .goToRaceDashboard(BASE_PATH, raceData.input_raceName);
-    new AdminRaceDashboard()
-      .wait()
-      .assertCategoriesArePresent(raceData.categories);
+    new require('./components/AssertRaceWasCreated')(true, BASE_PATH, raceData);
+    new require('./components/AssertCategoriesArePresent')(true, raceData);
 
     var raceName = raceData.input_raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
-    var executeCategoryDashboardCheck = function (index) {
-      if(index > 0){
-        new AdminRaceDashboard()
-          .fetch(BASE_PATH, raceName)
-          .wait();
-      }
-      element(by.linkText(raceData.categories[index].name)).click();
-      new AdminCategoryDashboard()
-        .wait()
-        .assertDataIsCorrect(raceData.categories[index]);
-    }
-    for(var i = 0; i < raceData.categories.length; i ++){
-      executeCategoryDashboardCheck(i);
-    }
 
-    new AdminPricingDashboard()
-      .fetch(BASE_PATH, 'race/' + raceName + '/pricing')
-      .wait()
-      .checkAllCategoryPrices(raceData.categories);
-
+    new require('./components/AssertCategoryDataIsCorrect')(false, BASE_PATH, raceData, raceName);
+    new require('./components/AssertCategoryPricesAreCorrect')(true, BASE_PATH, raceData, raceName);
   });
 });
