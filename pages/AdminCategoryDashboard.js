@@ -14,10 +14,9 @@ function AdminCategoryDashboard() {
   this.totalTeams = element(by.id('max_teams_view'));
   this.totalTeamParticipants = element(by.id('max_participants_view'));
 
-  // this.fetch = function (prefix) {
-  //   browser.get(prefix + 'user');
-  //   return this;
-  // }
+  this.fetch = function () {
+    throw new Error('Cannot fetch the category dashboard because it requires an ID I don\'t have access to.');
+  }
 
   self.wait = function () {
     browser.wait(function() {

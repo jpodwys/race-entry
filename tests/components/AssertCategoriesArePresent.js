@@ -1,7 +1,10 @@
 var AdminRaceDashboard = require('../../pages/AdminRaceDashboard');
 
 module.exports = function(fetch, raceData){
-  new AdminRaceDashboard()
-    .wait()
+  var adminRaceDashboard = new AdminRaceDashboard();
+  if(fetch){
+    adminRaceDashboard.fetch();
+  }
+  adminRaceDashboard.wait()
     .assertCategoriesArePresent(raceData.categories);
 }
