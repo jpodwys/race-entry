@@ -2,10 +2,11 @@ function Home() {
 
   var self = this;
 
-  self.loginExpandButton = element(by.id('logInDrawer'));
-  self.emailInput = element(by.css('[name="email"]'));
-  self.passwordInput = element(by.css('[name="password"]'));
-  self.loginSubmitButton = element(by.css('div.login-drawer button[type="submit"]'));
+  self.button_loginExpand = element(by.id('logInDrawer'));
+  self.input_email = element(by.css('[name="email"]'));
+  self.input_password = element(by.css('[name="password"]'));
+  self.button_loginSubmit = element(by.css('div.login-drawer button[type="submit"]'));
+  self.button_signUp = element(by.linkText('SIGN UP'));
 
   self.fetch = function (prefix) {
     browser.get(prefix);
@@ -22,10 +23,14 @@ function Home() {
   }
 
   self.login = function (username, password) {
-    self.loginExpandButton.click().click();
-    self.emailInput.sendKeys(username);
-    self.passwordInput.sendKeys(password);
-    self.loginSubmitButton.click();
+    self.button_loginExpand.click().click();
+    self.input_email.sendKeys(username);
+    self.input_password.sendKeys(password);
+    self.button_loginSubmit.click();
+  }
+
+  self.clickSignUpButton = function () {
+    self.button_signUp.click();
   }
 
 }

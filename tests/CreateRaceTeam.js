@@ -8,8 +8,6 @@ var raceData = config.raceDataTeam();
 
 describe('Create Race Team', function() {
   browser.driver.manage().window().maximize();
-  //browser.ignoreSynchronization = true;
-  
   it('Should create a race with two team categories', function() {
     new require('./components/Login')(true, BASE_PATH);
     new AdminDashboard().wait().button_createRaceForm.click();

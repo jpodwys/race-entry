@@ -163,6 +163,10 @@ function CreateRace() {
   self.removeCategory = function () {
     return self;
   }
+
+  self.submitForm = function () {
+    self.button_submit.click();
+  }
 }
 
 module.exports = CreateRace;

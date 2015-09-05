@@ -2,7 +2,6 @@ function AdminCategoryDashboard() {
 
   var self = this;
 
-
   this.name = element(by.id('name'));
   this.distance = element(by.id('distance'));
   this.units = element(by.id('units'));

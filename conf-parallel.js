@@ -6,9 +6,10 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     shardTestFiles: true,
-    maxInstances: 2
+    maxInstances: 3
   },
   specs: [
+    'tests/CreateAccount.js',
     'tests/CreateRaceIndividual.js',
     'tests/CreateRaceTeam.js'
   ]

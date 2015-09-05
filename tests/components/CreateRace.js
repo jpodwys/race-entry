@@ -7,5 +7,5 @@ module.exports = function(fetch, raceData){
   }
   createRace.wait()
     .fillForm(raceData)
-    .button_submit.click();
+    .submitForm();
 }

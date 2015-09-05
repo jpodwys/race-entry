@@ -88,3 +88,13 @@ exports.credentials = {
   password: PASSWORD,
   ccNumber: CREDIT_CARD_NUMBER
 }
+
+exports.newAccountCredentials = {
+  input_firstName: 'first' + Date.now(),
+  input_lastName: 'last' + Date.now(),
+  input_organization: 'org' + Date.now(),
+  input_phone: '1234567890',
+  input_email: Date.now() + '+joseph@podwys.com',
+  input_password: PASSWORD,
+  input_accountType: '[value="2"]'
+}

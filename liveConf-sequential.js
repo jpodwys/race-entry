@@ -9,6 +9,7 @@ exports.config = {
     maxInstances: 1
   },
   specs: [
+    'tests/CreateAccount.js',
     'tests/CreateRaceIndividual.js',
     'tests/CreateRaceTeam.js'
   ]
