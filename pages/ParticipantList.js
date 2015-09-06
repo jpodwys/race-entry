@@ -1,5 +1,4 @@
 function ParticipantList() {
-
   var self = this;
 
   // self.fetch = function (prefix) {
@@ -15,7 +14,6 @@ function ParticipantList() {
   //   }, 15000, 'Page did not load.');
   //   return self;
   // }
-  
 }
 
-module.exports = Home;
+module.exports = ParticipantList;

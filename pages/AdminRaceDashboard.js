@@ -1,8 +1,4 @@
 function AdminRaceDashboard() {
-  // this.button_createRaceForm = element(by.css('[data-test="create-a-race"]'));
-  // this.button_createCalendarListing = element(by.linkText('Create Race Registration Form'));
-  // this.button_createRaceMap = element(by.linkText('Create Race Registration Form'));
-
   var self = this;
 
   self.fetch = function (prefix, raceName) {
@@ -16,11 +12,6 @@ function AdminRaceDashboard() {
         return items.length > 0;
       });
     }, 5000, 'Page did not load.');
-    return self;
-  }
-
-  self.click = function (element) {
-    element.click();
     return self;
   }
 
@@ -45,7 +36,6 @@ function AdminRaceDashboard() {
     }
     return self;
   }
-
 }
 
 module.exports = AdminRaceDashboard;

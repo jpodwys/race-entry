@@ -1,14 +1,11 @@
 function CustomizeRace() {
-
   var self = this;
 
   self.selector_waitCheckElement = '.registration .toolbar';
 
-  // self.fetch = function (prefix, suffix) {
-  //   suffix = suffix || 'user';
-  //   browser.get(prefix + suffix);
-  //   return self;
-  // }
+  self.fetch = function () {
+    throw new Error('Cannot fetch the category dashboard because it requires an ID I don\'t have access to.');
+  }
 
   self.wait = function () {
     browser.wait(function() {
@@ -18,8 +15,6 @@ function CustomizeRace() {
     }, 15000, 'Page did not load.');
     return self;
   }
-
-  //self.wait();
 }
 
 module.exports = CustomizeRace;

@@ -1,5 +1,4 @@
 function Home() {
-
   var self = this;
 
   self.button_loginExpand = element(by.id('logInDrawer'));
@@ -32,7 +31,6 @@ function Home() {
   self.clickSignUpButton = function () {
     self.button_signUp.click();
   }
-
 }
 
 module.exports = Home;

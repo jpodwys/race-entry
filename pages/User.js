@@ -14,7 +14,6 @@ function CreateAccount() {
     }, 5000, 'Page did not load.');
     return self;
   }
-
 }
 
 module.exports = CreateAccount;

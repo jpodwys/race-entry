@@ -1,13 +1,10 @@
 function AdminDashboard() {
-
   var self = this;
 
   self.selector_createRaceForm = '[data-test="create-a-race"]';
-
   self.button_createRaceForm = element(by.css(self.selector_createRaceForm));
   self.button_createCalendarListing = element(by.linkText('Create Race Registration Form'));
   self.button_createRaceMap = element(by.linkText('Create Race Registration Form'));
-
   self.selector_allRaces = '';
   self.selector_raceName = '';
 
@@ -26,10 +23,6 @@ function AdminDashboard() {
     return self;
   }
 
-  self.getAllRaces = function () {
-    return element.all(by.css(self.selector_allCategories));
-  }
-
   self.assertRaceIsPresent = function (basePath, raceName) {
     var href = basePath + 'race/' + raceName.replace(/ /g, '-').toLowerCase() + '/' + new Date().getFullYear();
     var selector = 'a[href="' + href + '"]';
@@ -46,8 +39,6 @@ function AdminDashboard() {
     var selector = 'a[href="' + href + '"]';
     element(by.css(selector)).click();
   }
-
-  //self.wait();
 }
 
 module.exports = AdminDashboard;

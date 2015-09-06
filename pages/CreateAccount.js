@@ -44,7 +44,6 @@ function CreateAccount() {
   self.submitForm = function () {
     self.button_submit.click();
   }
-
 }
 
 module.exports = CreateAccount;

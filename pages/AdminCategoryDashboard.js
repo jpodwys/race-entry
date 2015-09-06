@@ -1,17 +1,16 @@
 function AdminCategoryDashboard() {
-
   var self = this;
 
-  this.name = element(by.id('name'));
-  this.distance = element(by.id('distance'));
-  this.units = element(by.id('units'));
-  this.minAge = element(by.id('required_min_age'));
-  this.maxAge = element(by.id('required_max_age'));
-  this.maxTeamMembers = element(by.id('max_teammates_view'));
-  this.participantLimit = element(by.id('participant_limit'));
-  this.limitBy = element(by.id('limit_option_view'));
-  this.totalTeams = element(by.id('max_teams_view'));
-  this.totalTeamParticipants = element(by.id('max_participants_view'));
+  self.name = element(by.id('name'));
+  self.distance = element(by.id('distance'));
+  self.units = element(by.id('units'));
+  self.minAge = element(by.id('required_min_age'));
+  self.maxAge = element(by.id('required_max_age'));
+  self.maxTeamMembers = element(by.id('max_teammates_view'));
+  self.participantLimit = element(by.id('participant_limit'));
+  self.limitBy = element(by.id('limit_option_view'));
+  self.totalTeams = element(by.id('max_teams_view'));
+  self.totalTeamParticipants = element(by.id('max_participants_view'));
 
   this.fetch = function () {
     throw new Error('Cannot fetch the category dashboard because it requires an ID I don\'t have access to.');
@@ -54,7 +53,6 @@ function AdminCategoryDashboard() {
   function reformatDistance(distance){
     return distance.replace(/,/g, '');
   }
-
 }
 
 module.exports = AdminCategoryDashboard;

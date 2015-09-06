@@ -12,9 +12,6 @@ function CreateRace() {
   self.input_contactLastName = element(by.css('[data-test="contact-last-name"]'));
   self.input_contactEmail = element(by.css('[data-test="contact-email"]'));
 
-  //Upload Race Logo
-  //self.input_raceLogo = element(by.css('[data-test=""]'));
-
   //Where and When
   self.input_raceDate = element(by.css('[data-test="race-year-datetime"]'));
   self.input_raceStreet = element(by.css('[data-test="race-year-address"]'));
@@ -74,16 +71,8 @@ function CreateRace() {
     return self;
   }
 
-  self.completeFormStandard = function () {
-    return self;
-  }
-
   self.getAllCategories = function () {
     return element.all(by.css(self.selector_allCategories));
-  }
-
-  self.getCategoryName = function (category) {
-    return category.element('[data-test="category-name"]').getAttribute('value');
   }
 
   self.fillForm = function (race){

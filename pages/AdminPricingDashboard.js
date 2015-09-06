@@ -1,5 +1,4 @@
 function AdminPricingDashboard() {
-
   var self = this;
 
   self.selector_priceRow = '.price_row';
@@ -59,7 +58,6 @@ function AdminPricingDashboard() {
   function getValue (parent, selector) {
     return parent.element(by.css(selector)).getAttribute('value');
   }
-
 }
 
 module.exports = AdminPricingDashboard;
