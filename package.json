@@ -1,6 +1,6 @@
 {
   "name": "race-entry",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "description": "A demo",
   "main": "index.js",
   "devDependencies": {
